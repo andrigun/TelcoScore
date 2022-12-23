@@ -1,0 +1,95 @@
+/* === Remove input autofocus webkit === */
+*:focus {outline: none;}
+
+/* Style the search input field. */
+#search-form {
+    float: auto;
+    width: 270px;
+    height: 36px;
+    line-height: 15x;
+    text-indent: 5px;
+    font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    font-size: .9em;
+    color: #000;
+    background: #fff;
+    border: solid 1px #f36f21;
+    box-shadow: 1px 0px 1px #f36f21;
+    -moz-transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+#search-form:focus{
+  border: 1px solid #e3e3e3;
+   box-shadow: 0 0 1px #e3e3e3;
+  -moz-box-shadow: 0 0 1px #e3e3e3;
+	-webkit-box-shadow: 0 0 1px #e3e3e3;
+}
+}
+:-moz-placeholder {
+    color: #05f55d;
+}
+::-webkit-input-placeholder {
+    color: #05f55d;
+}
+
+
+
+/* Form submit button */
+.search-form button {
+    overflow: visible;
+    position: relative;
+    float: auto;
+    left:-6px ;
+    top: 1px;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    width: 110px;
+    font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    color: #fff;
+    text-transform: uppercase;
+    background: #f36f21;
+    border-radius: 0 3px 3px 0;      
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}   
+   
+.search-form button:hover{     
+    background: #e3e3e3;
+    color:#f36f21;
+  text-shadow: none;
+}   
+   
+.search-form button:active,
+.search-form button:focus{   
+    background: #f36f21;
+    outline: 0;
+    color: #e3e3e3;
+}
+ 
+.search-form button:before { /* left arrow */
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #f36f21 transparent;
+    top: 12px;
+    left: -6px;
+}
+ 
+.search-form button:hover:before{
+    border-right-color: #e3e3e3;
+}
+ 
+.search-form button:focus:before,
+.search-form button:active:before{
+        border-right-color: #f36f21;
+}      
+ 
+.search-form button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+} 

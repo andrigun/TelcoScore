@@ -42,12 +42,35 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -60,6 +83,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -85,9 +109,125 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="bin\TelcoScore.dll" />
+    <Content Include="bin\TelcoScore.pdb" />
+    <Content Include="bin\TelcoScore.xml" />
+    <Content Include="css\demo_page.css" />
+    <Content Include="css\demo_table.css" />
+    <Content Include="css\demo_table_jui.css" />
+    <Content Include="css\Form.css" />
+    <Content Include="css\img\1source.gif" />
+    <Content Include="css\img\AbuKanan.gif" />
+    <Content Include="css\img\AbuKiri.gif" />
+    <Content Include="css\img\BiruKanan.gif" />
+    <Content Include="css\img\BiruKiri.gif" />
+    <Content Include="css\img\BrownKanan.gif" />
+    <Content Include="css\img\BrownKiri.gif" />
+    <Content Include="css\img\butgo.gif" />
+    <Content Include="css\img\butkanan.gif" />
+    <Content Include="css\img\butkanan1.gif" />
+    <Content Include="css\img\butkiri.gif" />
+    <Content Include="css\img\butkiri1.gif" />
+    <Content Include="css\img\ButtonReset.gif" />
+    <Content Include="css\img\ButtonSearch.gif" />
+    <Content Include="css\img\close.gif" />
+    <Content Include="css\img\close_over.gif" />
+    <Content Include="css\img\CoklatKanan.gif" />
+    <Content Include="css\img\CoklatKiri.gif" />
+    <Content Include="css\img\cyborg2.gif" />
+    <Content Include="css\img\down.gif" />
+    <Content Include="css\img\down_over.gif" />
+    <Content Include="css\img\down_time.gif" />
+    <Content Include="css\img\down_time_over.gif" />
+    <Content Include="css\img\Hijau2Kanan.gif" />
+    <Content Include="css\img\Hijau2Kiri.gif" />
+    <Content Include="css\img\HijauKanan.gif" />
+    <Content Include="css\img\HijauKiri.gif" />
+    <Content Include="css\img\Kuningkanan.gif" />
+    <Content Include="css\img\KuningKiri.gif" />
+    <Content Include="css\img\laptop.jpg" />
+    <Content Include="css\img\left.gif" />
+    <Content Include="css\img\left_over.gif" />
+    <Content Include="css\img\loadingP.gif" />
+    <Content Include="css\img\MerahKanan.gif" />
+    <Content Include="css\img\MerahKiri.gif" />
+    <Content Include="css\img\OrangeKanan.gif" />
+    <Content Include="css\img\OrangeKiri.gif" />
+    <Content Include="css\img\plus.gif" />
+    <Content Include="css\img\right.gif" />
+    <Content Include="css\img\right_over.gif" />
+    <Content Include="css\img\sa.png" />
+    <Content Include="css\img\sa1.png" />
+    <Content Include="css\img\sd.png" />
+    <Content Include="css\img\sd1.png" />
+    <Content Include="css\img\source.gif" />
+    <Content Include="css\img\spinner.gif" />
+    <Content Include="css\img\ToscaKanan.gif" />
+    <Content Include="css\img\ToscaKiri.gif" />
+    <Content Include="css\img\Ungu2Kanan.gif" />
+    <Content Include="css\img\Ungu2Kiri.gif" />
+    <Content Include="css\img\UnguKanan.gif" />
+    <Content Include="css\img\UnguKiri.gif" />
+    <Content Include="css\img\warning.jpg" />
+    <Content Include="css\jquery-ui-1.8.4.custom.css" />
+    <Content Include="css\jquery.dataTables.js" />
+    <Content Include="css\jquery.dataTables.min.js" />
+    <Content Include="css\jquery.dataTables_themeroller.css" />
+    <Content Include="css\jquery.datetimepicker.css" />
+    <Content Include="css\style.css" />
+    <Content Include="demo.html" />
+    <Content Include="FrSearch.aspx" />
+    <Content Include="FrSearchScore.aspx" />
+    <Content Include="FrTelcoSearch.aspx" />
+    <Content Include="html2canvas-master\dist\html2canvas.js" />
+    <Content Include="html2canvas-master\dist\html2canvas.min.js" />
+    <Content Include="html2canvas-master\dist\html2canvas.svg.js" />
+    <Content Include="html2canvas-master\dist\html2canvas.svg.min.js" />
+    <Content Include="jquery.label_better.js" />
+    <Content Include="msg.aspx" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery.json-1.3.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WsGetScore.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cls\clsCommon.vb" />
+    <Compile Include="cls\ClsData.vb" />
+    <Compile Include="cls\ClsDuk.vb" />
+    <Compile Include="cls\ClsPay.vb" />
+    <Compile Include="cls\clsUser.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrSearch.aspx.designer.vb">
+      <DependentUpon>FrSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrSearch.aspx.vb">
+      <DependentUpon>FrSearch.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FrSearchScore.aspx.designer.vb">
+      <DependentUpon>FrSearchScore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrSearchScore.aspx.vb">
+      <DependentUpon>FrSearchScore.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FrTelcoSearch.aspx.designer.vb">
+      <DependentUpon>FrTelcoSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrTelcoSearch.aspx.vb">
+      <DependentUpon>FrTelcoSearch.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="msg.aspx.designer.vb">
+      <DependentUpon>msg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="msg.aspx.vb">
+      <DependentUpon>msg.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -107,6 +247,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="WsGetScore.asmx.vb">
+      <DependentUpon>WsGetScore.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -117,6 +261,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\TelcoScore.dll.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -126,6 +271,11 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\TelcoScore.vbproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\TelcoScore.vbprojAssemblyReference.cache" />
+    <Content Include="obj\Release\TelcoScore.vbproj.CoreCompileInputs.cache" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
