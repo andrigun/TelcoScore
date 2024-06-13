@@ -2,6 +2,10 @@
 Imports System.Net
 Imports System.Text
 Imports System.Security.Cryptography
+Imports System.Data.SqlClient
+Imports System.Net.Security
+Imports System.Security.Principal
+
 
 Public Class FrSearch
     Inherits System.Web.UI.Page
@@ -19,8 +23,15 @@ Public Class FrSearch
         Dim oUser As New clsUser
 
         sUserID = Replace(System.Web.HttpContext.Current.User.Identity.Name, "BDF\", "")
+        'If Debugger.IsAttached Then
+        '    ' run in debug environment
+        '    sUserID = Replace(Security.Principal.WindowsIdentity.GetCurrent().Name, "BDF\", "")
+        'Else
+        '    ' run in server environment
+        '    sUserID = Replace(Page.User.Identity.Name, "BDF\", "")
+        'End If
 
-        ''sUserID = "andrigun"
+        sUserID = "andrigun"
 
         If sUserID <> "" Then
             'storeSessionInfo()

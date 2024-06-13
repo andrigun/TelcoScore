@@ -1,14 +1,19 @@
 
 Imports TelcoScore.ClsData
 
+Imports BNFCipher
+
 Public Class clsUser
 
     Inherits System.Web.UI.Page           ' supaya object dari web page , seperti session bisa dikenal.
+    Dim ciper As New Cipher
 
-    Private _db_server As String = ConfigurationManager.AppSettings("AAMServerName")
-    Private _db_name As String = ConfigurationManager.AppSettings("AAMDatabaseName")
-    Private _user_id As String = ConfigurationManager.AppSettings("AAMUserID")
-    Private _pwd As String = ConfigurationManager.AppSettings("AAMPassword")
+    Private sKey As String = ConfigurationManager.AppSettings("KeyPhrase")
+
+    Private _db_server As String = ciper.DecryptText(ConfigurationManager.AppSettings("AAMServerName"), sKey)
+    Private _db_name As String = ciper.DecryptText(ConfigurationManager.AppSettings("AAMDatabaseName"), sKey)
+    Private _user_id As String = ciper.DecryptText(ConfigurationManager.AppSettings("AAMUserID"), sKey)
+    Private _pwd As String = ciper.DecryptText(ConfigurationManager.AppSettings("AAMPwd"), sKey)
 
 #Region "Permission Right"
 

@@ -59,6 +59,8 @@ Public Class WsGetScore
     Dim MobilePhone As String = ""
 
     Dim sUserID As String = ""
+    Dim GProviderId As String = ""
+
     <WebMethod(),
     ScriptMethod(UseHttpGet:=False, ResponseFormat:=ResponseFormat.Json, XmlSerializeString:=False)>
     Public Function FnGetScoreByMobilePhoneInternal(ByVal sMobilePhone As String,
@@ -260,6 +262,7 @@ Public Class WsGetScore
                 _WsUserName = oDd.Tables(0).Rows(0).Item(1)
                 _WsPassword = oDd.Tables(0).Rows(0).Item(2)
                 ProviderId = oDd.Tables(0).Rows(0).Item(0)
+                GProviderId = ProviderId
 
                 'sResult = LoadScoreByMobilephone(sMobilePhone)
 
@@ -635,13 +638,32 @@ Public Class WsGetScore
             Httprequest.KeepAlive = True
             Httprequest.ProtocolVersion = HttpVersion.Version10
 
+            'Dim requestd As New sGetscore With {
+            '    .requested_msisdn = sEncrypted,
+            '    .external_source_id = sRequestID 'GetRandomPass()
+            '}
+
+
+            'Dim postdata As String = JsonConvert.SerializeObject(requestd)
+            If GProviderId = "4" Then
+                sEncrypted = "{""xlaxiata"":""" & sEncrypted & """}"
+            End If
+
+            Dim requestdXL As New sGetscoreXL With {
+               .requested_msisdns = sEncrypted,
+               .external_source_id = sRequestID 'GetRandomPass()
+               }
+
             Dim requestd As New sGetscore With {
-                .requested_msisdn = sEncrypted,
-                .external_source_id = sRequestID 'GetRandomPass()
-            }
+               .requested_msisdn = sEncrypted,
+               .external_source_id = sRequestID 'GetRandomPass()
+               }
+
+            Dim postdata As String = ""
+            Dim postdataXL As String = JsonConvert.SerializeObject(requestdXL)
+            Dim postdataNonXL As String = JsonConvert.SerializeObject(requestd)
 
 
-            Dim postdata As String = JsonConvert.SerializeObject(requestd)
             Dim requestWriter As StreamWriter = New StreamWriter(Httprequest.GetRequestStream())
             requestWriter.Write(postdata)
             requestWriter.Close()
@@ -769,13 +791,32 @@ Public Class WsGetScore
             Httprequest.KeepAlive = True
             Httprequest.ProtocolVersion = HttpVersion.Version10
 
+            If GProviderId = "4" Then
+                sEncrypted = "{""xlaxiata"":""" & sEncrypted & """}"
+            End If
+
+            Dim requestdXL As New sGetscoreXL With {
+               .requested_msisdns = sEncrypted,
+               .external_source_id = sRequestID 'GetRandomPass()
+               }
+
             Dim requestd As New sGetscore With {
-                .requested_msisdn = sEncrypted,
-                .external_source_id = sRequestID 'GetRandomPass()
-            }
+               .requested_msisdn = sEncrypted,
+               .external_source_id = sRequestID 'GetRandomPass()
+               }
 
 
-            Dim postdata As String = JsonConvert.SerializeObject(requestd)
+
+            Dim postdata As String = ""
+            Dim postdataXL As String = JsonConvert.SerializeObject(requestdXL)
+            Dim postdataNonXL As String = JsonConvert.SerializeObject(requestd)
+
+            If GProviderId = "4" Then
+                postdata = postdataXL
+            Else
+                postdata = postdataNonXL
+            End If
+
             Dim requestWriter As StreamWriter = New StreamWriter(Httprequest.GetRequestStream())
             requestWriter.Write(postdata)
             requestWriter.Close()
@@ -1196,6 +1237,13 @@ Public Class WsGetScore
         Public Property external_source_id As String = ""
     End Class
 
+    Public Class sGetscoreXL
+        Private _ClientCodeXL As String = ConfigurationManager.AppSettings("sClientCode")
+
+        Public Property client_code As String = _ClientCodeXL 'sClientCode "buana_indonesia"
+        Public Property requested_msisdns As String = ""
+        Public Property external_source_id As String = ""
+    End Class
     Public Class sDecryptScore
         Public Property result_decrypt As String = ""
     End Class

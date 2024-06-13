@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic
 Imports System.Data
 Imports System.Data.SqlClient
+Imports BNFCipher
 
 Public Class ClsData
     Public oConn As New SqlConnection       ' for sql connection
@@ -8,11 +9,13 @@ Public Class ClsData
     ' 2 varaible ini diperlukan untuk execute dengan begin transaction
     Public oTransaction As SqlTransaction
     Public oCommand As SqlCommand
+    Dim ciper As New Cipher
 
-    Private _db_server As String = ConfigurationManager.AppSettings("ServerName")
-    Private _db_name As String = ConfigurationManager.AppSettings("DatabaseName")
-    Private _user_id As String = ConfigurationManager.AppSettings("UserID")
-    Private _pwd As String = ConfigurationManager.AppSettings("Password")
+    Private sKey As String = ConfigurationManager.AppSettings("KeyPhrase")
+    Private _db_server As String = ciper.DecryptText(ConfigurationManager.AppSettings("ServerName"), sKey)
+    Private _db_name As String = ciper.DecryptText(ConfigurationManager.AppSettings("DatabaseName"), sKey)
+    Private _user_id As String = ciper.DecryptText(ConfigurationManager.AppSettings("UserID"), sKey)
+    Private _pwd As String = ciper.DecryptText(ConfigurationManager.AppSettings("Pwd"), sKey)
     Public Enum ReturnType
         DataReader = 0
         DataSet = 1
